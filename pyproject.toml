@@ -1,0 +1,17 @@
+[project]
+name = "round-01-runway-entry"
+version = "0.1.0"
+description = "An entry to Duck Jam round-01-runway — The Runway."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "duckjam>=0.1,<1",
+    "round-01-runway>=1,<2",
+]
+
+[tool.uv]
+# The jam serves its own kit while PyPI refuses the SDK's servo pin.
+find-links = ["https://huggingface.co/datasets/Nico-robot/duckjam-wheels/resolve/main/index.html"]
+# The SDK pins these to a commit, and uv wants the clone to say so too.
+constraint-dependencies = [
+    "better-actuator-models @ git+https://github.com/Rhoban/bam.git@62bd8ce12154340be97e06f7f41a0ca8f116d967",
+]
